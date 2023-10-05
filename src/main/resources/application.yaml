@@ -1,0 +1,40 @@
+spring:
+  profile.active: development
+server:
+  port: 9090
+---
+cloud:
+  aws:
+    region:
+      static: us-east-1
+      auto: false
+    credentials:
+      access-key: AKIASVS42Q35OQWV3DNU
+      secret-key: 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
+    end-point:
+      uri: https://sqs.us-east-1.amazonaws.com/183804528378/user-crud
+    stack:
+      auto: false
+
+spring:
+  profile: development
+  datasource:
+    url: jdbc:h2:mem:synthesis;DB_CLOSE_DELAY=-1;MODE=MYSQL
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings.trace: false
+      settings.web-allow-others: false
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
